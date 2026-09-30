@@ -1,3 +1,11 @@
+node_modules/
+.env
+dist/
+*.log
+
+video link
+https://www.google.com/search?sca_esv=9194de78227b9d0c&sxsrf=APpeQnvwuHOf6tJL9A07dju0QIORCBPeDw:1790760916757&q=Simple+api+development+tutorial+for+beginners+using+express+js+and+mongodb&sa=X&ved=2ahUKEwjmn8iigJaXAxX9VmwGHRiqIcMQ1QJ6BAgoEAE&biw=1372&bih=617&dpr=1.4#fpstate=ive&vld=cid:3f52148e,vid:_7UQPve99r4,st:0
+
 UserName
 sanjeevsingh9517_db_user
 Password
