@@ -1,15 +1,21 @@
-// import express from 'express'
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
+
+
 const app = express()
-const Product = require('./Models/product.model.js');
-const productRoutes = require('./routes/product.route.js');
+
+const productRoutes = require('./src/routes/product.route.js');
+const authRoutes = require('./src/routes/auth.route.js');
+
 
 // midleware 
 app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 
 //Routes
+app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 
 app.get('/', (req, res) => {
@@ -17,10 +23,15 @@ app.get('/', (req, res) => {
 })
 
 
-mongoose.connect("mongodb+srv://sanjeevsingh9517_db_user:ZpCEbq6YXIT1c5qf@mongodb.p3iktig.mongodb.net/Node-API?appName=mongodb").then(() => {
+
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
     console.log('Connected to MongoDB')
-    app.listen(3000, () => {
-        console.log('Server is running on port 3000')
+
+    const port = process.env.PORT || 3000;
+
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`)
     })
 }).catch((err) => {
     console.error('Error connecting to MongoDB:', err)
